@@ -2,7 +2,8 @@ package ru.netology.radio;
 
 public class Radio {
 
-    public int currentStation;
+    private int currentStation;
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
@@ -18,45 +19,40 @@ public class Radio {
         this.currentStation = currentStation;
     }
 
-    public int nextStation;
-
     public int getNextStation() {
-        return nextStation;
+        return currentStation;
     }
 
-    public void setNextStation(int nextStation) {
-        if (nextStation < 9) {
-            nextStation = nextStation + 1;
+    public void setNextStation(int currentStation) {
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
         }
 
-        if (nextStation > 9) {
-            nextStation = 0;
+        if (currentStation > 9) {
+            currentStation = 0;
         }
 
-        this.nextStation = nextStation;
+        this.currentStation = currentStation;
 
     }
-
-    public int prevStation;
 
     public int getPrevStation() {
-        return prevStation;
+        return currentStation;
     }
 
-    public void setPrevStation(int prevStation) {
-        if (prevStation <= 9) {
-            prevStation = prevStation - 1;
+    public void setPrevStation(int currentStation) {
+        if (currentStation <= 9) {
+            currentStation = currentStation - 1;
         }
 
-        if (prevStation <= 0) {
-            prevStation = 9;
+        if (currentStation <= 0) {
+            currentStation = 9;
         }
 
-        this.prevStation = prevStation;
+        this.currentStation = currentStation;
 
     }
 
-    public int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -72,37 +68,33 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int increaseVolume;
-
     public int getIncreaseVolume() {
-        return increaseVolume;
+        return currentVolume;
 
     }
 
-    public void setIncreaseVolume(int increaseVolume) {
-        if (increaseVolume < 10) {
-            increaseVolume = increaseVolume + 1;
+    public void setIncreaseVolume(int currentVolume) {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
         }
-        if (increaseVolume >= 10) {
-            increaseVolume = 10;
+        if (currentVolume >= 10) {
+            currentVolume = 10;
         }
-        this.increaseVolume = increaseVolume;
+        this.currentVolume = currentVolume;
     }
-
-    public int decreaseVolume;
 
     public int getDecreaseVolume() {
-        return decreaseVolume;
+        return currentVolume;
 
     }
 
-    public void setDecreaseVolume(int decreaseVolume) {
-        if (decreaseVolume > 0) {
-            decreaseVolume = decreaseVolume - 1;
+    public void setDecreaseVolume(int currentVolume) {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
-        if (decreaseVolume == 0) {
+        if (currentVolume == 0) {
             return;
         }
-        this.decreaseVolume = decreaseVolume;
+        this.currentVolume = currentVolume;
     }
 }
