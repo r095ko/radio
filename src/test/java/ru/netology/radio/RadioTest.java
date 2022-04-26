@@ -8,7 +8,7 @@ public class RadioTest {
 
     @Test
     public void testCurrentStation() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setCurrentStation(5);
 
         int expected = 5;
@@ -19,7 +19,7 @@ public class RadioTest {
 
     @Test
     public void testCurrentStation0() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setCurrentStation(-1);
 
         int expected = 0;
@@ -30,7 +30,7 @@ public class RadioTest {
 
     @Test
     public void testCurrentStationOverQuantity() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setCurrentStation(16);
 
         int expected = 0;
@@ -52,7 +52,7 @@ public class RadioTest {
 
     @Test
     public void testNextStation() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setNextStation(5);
 
         int expected = 6;
@@ -63,8 +63,8 @@ public class RadioTest {
 
     @Test
     public void testNextStationOverQauntity() {
-        Radio currentStation = new Radio(15);
-        currentStation.setNextStation(16);
+        Radio currentStation = new Radio(14);
+        currentStation.setNextStation(15);
 
         int expected = 0;
         int actual = currentStation.getNextStation();
@@ -75,7 +75,7 @@ public class RadioTest {
     @Test
     public void testNextStationOverQauntityDefault() {
         Radio currentStation = new Radio();
-        currentStation.setNextStation(11);
+        currentStation.setNextStation(10);
 
         int expected = 0;
         int actual = currentStation.getNextStation();
@@ -85,7 +85,7 @@ public class RadioTest {
 
     @Test
     public void testPrevStation() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setPrevStation(6);
 
         int expected = 5;
@@ -97,19 +97,8 @@ public class RadioTest {
 
     @Test
     public void testPrevStation0() {
-        Radio currentStation = new Radio(15);
+        Radio currentStation = new Radio(14);
         currentStation.setPrevStation(0);
-
-        int expected = 15;
-        int actual = currentStation.getPrevStation();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testPrevStation15() {
-        Radio currentStation = new Radio(15);
-        currentStation.setPrevStation(15);
 
         int expected = 14;
         int actual = currentStation.getPrevStation();
@@ -118,11 +107,22 @@ public class RadioTest {
     }
 
     @Test
-    public void testPrevStationOverQauntity() {
-        Radio currentStation = new Radio(15);
-        currentStation.setPrevStation(16);
+    public void testPrevStation14() {
+        Radio currentStation = new Radio(14);
+        currentStation.setPrevStation(14);
 
-        int expected = 16;
+        int expected = 13;
+        int actual = currentStation.getPrevStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPrevStationOverQauntity() {
+        Radio currentStation = new Radio(14);
+        currentStation.setPrevStation(15);
+
+        int expected = 15;
         int actual = currentStation.getPrevStation();
 
         assertEquals(expected, actual);
@@ -131,9 +131,9 @@ public class RadioTest {
     @Test
     public void testPrevStationOverQauntityDefault() {
         Radio currentStation = new Radio();
-        currentStation.setPrevStation(11);
+        currentStation.setPrevStation(10);
 
-        int expected = 11;
+        int expected = 10;
         int actual = currentStation.getPrevStation();
 
         assertEquals(expected, actual);

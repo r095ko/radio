@@ -4,14 +4,13 @@ public class Radio {
 
     private int currentStation;
     private int currentVolume;
-    private int quantityStation = 15;
+    private int quantityStation = 9;
 
     public Radio() {
-        this.quantityStation = 10;
     }
 
     public Radio(int quantityStation) {
-        this.quantityStation = quantityStation;
+        this.quantityStation = 14;
     }
 
     public int getCurrentStation() {
