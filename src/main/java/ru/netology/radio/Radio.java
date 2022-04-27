@@ -10,7 +10,7 @@ public class Radio {
     }
 
     public Radio(int quantityStation) {
-        this.quantityStation = 14;
+        this.quantityStation = quantityStation;
     }
 
     public int getCurrentStation() {

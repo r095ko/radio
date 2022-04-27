@@ -7,6 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RadioTest {
 
     @Test
+    public void testCurrentStation30() {
+        Radio currentStation = new Radio(30);
+        currentStation.setCurrentStation(25);
+
+        int expected = 25;
+        int actual = currentStation.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testCurrentStation() {
         Radio currentStation = new Radio(14);
         currentStation.setCurrentStation(5);
