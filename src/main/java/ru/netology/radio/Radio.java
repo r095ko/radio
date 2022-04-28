@@ -4,6 +4,14 @@ public class Radio {
 
     private int currentStation;
     private int currentVolume;
+    private int quantityStation = 10;
+
+    public Radio() {
+    }
+
+    public Radio(int quantityStation) {
+        this.quantityStation = quantityStation;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -13,7 +21,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > quantityStation) {
             return;
         }
         this.currentStation = currentStation;
@@ -24,11 +32,11 @@ public class Radio {
     }
 
     public void setNextStation(int currentStation) {
-        if (currentStation < 9) {
+        if (currentStation < quantityStation) {
             currentStation = currentStation + 1;
         }
 
-        if (currentStation > 9) {
+        if (currentStation >= quantityStation) {
             currentStation = 0;
         }
 
@@ -41,12 +49,12 @@ public class Radio {
     }
 
     public void setPrevStation(int currentStation) {
-        if (currentStation <= 9) {
+        if (currentStation <= quantityStation) {
             currentStation = currentStation - 1;
         }
 
         if (currentStation <= 0) {
-            currentStation = 9;
+            currentStation = quantityStation - 1;
         }
 
         this.currentStation = currentStation;
@@ -62,8 +70,8 @@ public class Radio {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
-            currentVolume = 10;
+        if (currentVolume > 100) {
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
     }
@@ -74,11 +82,11 @@ public class Radio {
     }
 
     public void setIncreaseVolume(int currentVolume) {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume >= 10) {
-            currentVolume = 10;
+        if (currentVolume >= 100) {
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
     }
